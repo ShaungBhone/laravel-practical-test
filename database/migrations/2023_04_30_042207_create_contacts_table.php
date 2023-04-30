@@ -15,6 +15,7 @@ return new class extends Migration {
             $table->string('name')->nullable();
             $table->date('dob')->nullable();
             $table->string('phone')->nullable();
+            $table->string('gender')->nullable();
             $table->timestamps();
         });
     }

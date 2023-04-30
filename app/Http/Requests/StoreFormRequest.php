@@ -25,6 +25,7 @@ class StoreFormRequest extends FormRequest
             'name' => 'nullable|string',
             'dob' => 'nullable|date',
             'phone' => 'nullable|numeric|regex:/^([0-9\s\-\+\(\)]*)$/|min:5',
+            'gender' => 'nullable|in:male,female',
         ];
     }
 }

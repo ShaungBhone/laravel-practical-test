@@ -17,9 +17,9 @@ class ContactController extends Controller
     {
         $contact = Contact::create($request->validated());
 
-        auth()
-            ->user()
-            ->notify(new ContactSubmitted($contact));
+        // auth()
+        //     ->user()
+        //     ->notify(new ContactSubmitted($contact));
 
         return response()->json(
             [
