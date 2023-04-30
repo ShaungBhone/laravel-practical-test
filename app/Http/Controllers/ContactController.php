@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use App\Notifications\ContactSubmitted;
 use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
@@ -33,6 +34,9 @@ class ContactController extends Controller
         $contact->name = $request->input('name');
         $contact->dob = $request->input('dob');
         $contact->phone = $request->input('phone');
+        auth()
+            ->user()
+            ->notify(new ContactSubmitted($contact));
         $contact->save();
 
         return response()->json(
